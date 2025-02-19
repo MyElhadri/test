@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Corona Data Visualization</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Details and Creative Visualizations</h1>
+        <h2>Data Preview</h2>
+        <div class="table-container">
+            {{ details|safe }}
+        </div>
+        <h2>Data Statistics</h2>
+        <div class="table-container">
+            {{ stats|safe }}
+        </div>
+        {% if plot_wave_url %}
+            <h2>Abstract Wave-Like Visualization</h2>
+            <img src="{{ plot_wave_url }}" alt="Abstract Wave Visualization">
+        {% endif %}
+        {% if plot_bar_url %}
+            <h2>Creative Dynamic Bar Chart</h2>
+            <img src="{{ plot_bar_url }}" alt="Dynamic Bar Chart">
+        {% endif %}
+        <br>
+        <a href="{{ url_for('index') }}">Upload Another File</a>
+    </div>
+</body>
+</html>
